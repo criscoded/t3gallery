@@ -1,12 +1,13 @@
-# T3 Gallery
-
 ## READ:
 
-App is deployed with Vercel here: https://t3gallery-jziakctsm-crisheights-projects.vercel.app/
+This project has been shelved due to CVE-2025-55182 affecting React Server Components
+I will be building more webapps and DB projects in Java with Spring instead
+
+App was deployed with Vercel but is now taken down.
 
 Guide provided by Theo at: https://www.youtube.com/@t3dotgg
 
-## TODO
+## COMPLETED
 
 - [x] Make it deploy (vercel)
 - [x] Fix image sizing (tailwind)
@@ -16,7 +17,3 @@ Guide provided by Theo at: https://www.youtube.com/@t3dotgg
 - [x] Add authentication (w/ clerk)
 - [x] Add image upload
 - [x] Error handling (w/ sentry)
-- [ ] Routing/image page (parallel route)
-- [ ] Delete button (w/ server actions)
-- [ ] Analytics (posthog)
-- [ ] Rate limiting (upstash)
