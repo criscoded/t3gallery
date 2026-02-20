@@ -23,15 +23,15 @@ This project leverages a modern web development workflow:
 
 # Key Features
 
-* Responsive UI: A mobile-first gallery interface built with Tailwind CSS.
+* Responsive UI: A mobile-first gallery interface built with Tailwind CSS
 
-* Server-Side Rendering: Utilizes Next.js Server Components for optimized data fetching.
+* Server-Side Rendering: Utilizes Next.js Server Components for optimized data fetching
 
-* Secure Auth: Full user authentication flow including sign-in, sign-up, and protected routes.
+* Secure Auth: Full user authentication flow including sign-in, sign-up, and protected routes
 
-* Dynamic Uploads: Seamless image uploading functionality integrated with the gallery database.
+* Dynamic Uploads: Seamless image uploading functionality integrated with the gallery database
 
-* Reliable Infrastructure: Automated database management and production-grade error reporting.
+* Reliable Infrastructure: Automated database management and production-grade error reporting
 
 # Project Roadmap (Completed)
 
@@ -49,4 +49,4 @@ This project leverages a modern web development workflow:
 
 # Acknowledgments
 
-This project was built following the architectural patterns and guide provided by Theo - T3.gg.
+This project was built following the architectural patterns and guide provided by Theo - T3.gg
