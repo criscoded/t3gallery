@@ -7,31 +7,31 @@ A full-stack image gallery application built with the T3 Stack, featuring secure
 
 This project leverages a modern web development workflow:
 
-Framework: Next.js (App Router)
+* Framework: Next.js (App Router)
 
-Language: TypeScript
+* Language: TypeScript
 
-Styling: Tailwind CSS
+* Styling: Tailwind CSS
 
-Database: Vercel Postgres with Drizzle ORM
+* Database: Vercel Postgres with Drizzle ORM
 
-Authentication: Clerk
+* Authentication: Clerk
 
-Monitoring: Sentry for error handling and performance tracking
+* Monitoring: Sentry for error handling and performance tracking
 
-Deployment: Vercel
+* Deployment: Vercel
 
 # Key Features
 
-Responsive UI: A mobile-first gallery interface built with Tailwind CSS.
+* Responsive UI: A mobile-first gallery interface built with Tailwind CSS.
 
-Server-Side Rendering: Utilizes Next.js Server Components for optimized data fetching.
+* Server-Side Rendering: Utilizes Next.js Server Components for optimized data fetching.
 
-Secure Auth: Full user authentication flow including sign-in, sign-up, and protected routes.
+* Secure Auth: Full user authentication flow including sign-in, sign-up, and protected routes.
 
-Dynamic Uploads: Seamless image uploading functionality integrated with the gallery database.
+* Dynamic Uploads: Seamless image uploading functionality integrated with the gallery database.
 
-Reliable Infrastructure: Automated database management and production-grade error reporting.
+* Reliable Infrastructure: Automated database management and production-grade error reporting.
 
 # Project Roadmap (Completed)
 
