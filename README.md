@@ -1,5 +1,5 @@
 # Cloud Media Engine
-A full-stack image gallery application built with Next.js, Tailwind CSS, Clerk, and Prisma. Image hosting provided by UploadThing, with request updates provided by Sentry. Features secure authentication, cloud database integration, and automated error tracking.
+A full-stack image gallery application built with Next.js, Tailwind CSS, and PostgreSQL. Image hosting provided by UploadThing, with request updates provided by Sentry. Features secure authentication, cloud database integration, and automated error tracking.
 
 > This project has been archived and moved to a read-only state. Following the disclosure of CVE-2025-55182 regarding React Server Components, I have shifted my focus to developing web applications using Java with Spring Boot for enhanced backend stability and security.
 
