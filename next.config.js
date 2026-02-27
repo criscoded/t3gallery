@@ -30,8 +30,8 @@ const config = withSentryConfig(
       // For all available options, see:
       // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-      org: "crisheight",
-      project: "t3-gallery",
+      org: "criscoded",
+      project: "cloud-media-engine",
 
       // Only print logs for uploading source maps in CI
       silent: !process.env.CI,
