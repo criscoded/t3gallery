@@ -1,11 +1,12 @@
 import {Modal} from "./modal";
 import FullPageImage from "~/components/full-image-page";
 
-export default function PhotoModal({
-                                             params,
-                                         }: {
-    params: { id: string };
-}) {
+export default async function PhotoModal(
+    props: {
+        params: Promise<{ id: string }>;
+    }
+) {
+    const params = await props.params;
     const photoId = params.id;
 
     const idAsNumber = Number(photoId);
