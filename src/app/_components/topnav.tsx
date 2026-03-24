@@ -9,7 +9,7 @@ export async function TopNav() {
     return (
         <nav className="flex w-full justify-between items-center px-10 py-6 text-xl">
             <Link href="/" className="font-serif text-3xl font-bold tracking-tight">
-                GALLERY
+                Cloud Spark
             </Link>
 
             <div className="flex items-center gap-8 text-sm font-medium uppercase tracking-widest">
