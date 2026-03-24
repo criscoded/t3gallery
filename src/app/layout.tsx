@@ -2,17 +2,19 @@ import { ClerkProvider } from '@clerk/nextjs'
 import "~/styles/globals.css";
 import "@uploadthing/react/styles.css";
 import React from "react";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { TopNav } from "~/app/_components/topnav";
-import { extractRouterConfig } from "uploadthing/server";
-import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
-import {ourFileRouter} from "~/app/api/uploadthing/core";
 import type { Metadata } from "next";
 
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const playfair = Playfair_Display({
+    subsets: ["latin"],
+    variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -29,22 +31,19 @@ export default function RootLayout({
   modal: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
     <html lang="en">
-    <NextSSRPlugin
-        routerConfig={extractRouterConfig(ourFileRouter)}
-    />
-      <body className={`font-sans ${inter.variable} `}>
-        <div className="h-screen grid grid-rows[auto, 1fr">
-            <TopNav />
-            <main className="overflow-y-scroll">
-                {children}
-            </main>
-        </div>
-        {modal}
-        <div id="modal-root" />
+      <body className={`font-sans bg-background text-foreground ${inter.variable} ${playfair.variable}`}>
+        <ClerkProvider>
+            <div className="h-screen grid grid-rows-[auto_1fr]">
+                <TopNav />
+                <main className="overflow-y-scroll p-8">
+                    {children}
+                </main>
+            </div>
+            {modal}
+            <div id="modal-root" />
+        </ClerkProvider>
       </body>
     </html>
-    </ClerkProvider>
   );
 }
