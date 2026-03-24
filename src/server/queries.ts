@@ -1,42 +1,93 @@
 import "server-only";
-import {db} from "~/server/db";
-import {auth} from "@clerk/nextjs/server";
+import { db } from "~/server/db";
+import { auth } from "@clerk/nextjs/server";
+import { images } from "~/server/db/schema";
+import { desc, eq } from "drizzle-orm";
 
 export async function getDefaultImages() {
-    return db.query.images.findMany({
-        where: (model, { eq }) => eq(model.isPublic, true),
-        orderBy: (model, {desc}) => desc(model.id),
-    });
+  console.log("QUERIES: Fetching default images");
+  const result = await db
+    .select()
+    .from(images)
+    .where(eq(images.isPublic, true))
+    .orderBy(desc(images.id));
+
+  // Force to a plain object array using JSON serialization
+  return JSON.parse(
+    JSON.stringify(
+      result.map((img) => ({
+        id: img.id,
+        name: img.name,
+        url: img.url,
+        userId: img.userId,
+      })),
+    ),
+  );
 }
 
 export async function getUserImages() {
-    const user = auth();
+  const user = await auth();
+  console.log("QUERIES: Fetching user images for", user.userId);
 
-    if(!user.userId) throw new Error("Unauthorized");
+  if (!user.userId) throw new Error("Unauthorized");
 
-    return db.query.images.findMany({
-        where: (model, {eq}) => eq(model.userId, user.userId),
-        orderBy: (model, {desc}) => desc(model.id),
-    });
+  const result = await db
+    .select()
+    .from(images)
+    .where(eq(images.userId, user.userId))
+    .orderBy(desc(images.id));
+
+  console.log("QUERIES: Found", result.length, "images");
+
+  // Force to a plain object array using JSON serialization
+  return JSON.parse(
+    JSON.stringify(
+      result.map((img) => ({
+        id: img.id,
+        name: img.name,
+        url: img.url,
+        userId: img.userId,
+      })),
+    ),
+  );
 }
 
 export async function getImageById(id: number) {
-    const user = auth();
+  const user = await auth();
 
-    const image = await db.query.images.findFirst({
-        where: (model, { eq }) => eq(model.id, id),
-    });
+  const result = await db
+    .select()
+    .from(images)
+    .where(eq(images.id, id))
+    .limit(1);
 
-    if (!image) throw new Error("Image not found");
+  const image = result[0];
 
-    if (image.isPublic) {
-        return image;
-    }
+  if (!image) throw new Error("Image not found");
 
+  if (image.isPublic) {
+    return JSON.parse(
+      JSON.stringify({
+        id: image.id,
+        name: image.name,
+        url: image.url,
+        userId: image.userId,
+        createdAt: image.createdAt.toISOString(),
+      }),
+    );
+  }
 
-    if (!user.userId || image.userId !== user.userId) {
-        throw new Error("Unauthorized");
-    }
+  if (!user.userId || image.userId !== user.userId) {
+    throw new Error("Unauthorized");
+  }
 
-    return image;
+  return JSON.parse(
+    JSON.stringify({
+      id: image.id,
+      name: image.name,
+      url: image.url,
+      userId: image.userId,
+      createdAt: image.createdAt.toISOString(),
+    }),
+  );
 }
